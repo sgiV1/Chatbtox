@@ -1,5 +1,5 @@
 /* ==========================================
-   RESET Y CONFIGURACIÓN BÁSICA
+   ESTILOS GENERALES Y RESET
    ========================================== */
 * {
   box-sizing: border-box;
@@ -13,10 +13,10 @@ html, body {
   background-color: #0b0f19;
   color: #f3f4f6;
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-  overflow: hidden; /* Evita que la página entera haga scroll */
+  overflow: hidden;
 }
 
-/* Utilidad para ocultar pantallas */
+/* Utilidad para ocultar elementos */
 .hidden {
   display: none !important;
 }
@@ -31,16 +31,80 @@ html, body {
   height: 100dvh; /* Altura dinámica para celulares */
   width: 100%;
   background-color: #0b0f19;
+  position: relative;
+  overflow: hidden;
+}
+
+/* ==========================================
+   ENCABEZADOS
+   ========================================== */
+.app-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 12px 16px;
+  background-color: #111827;
+  border-bottom: 1px solid #1f2937;
+  flex-shrink: 0;
+}
+
+.header-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.header-title h1 {
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.status-indicator {
+  font-size: 0.75rem;
+  color: #818cf8;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-size: 1.1rem;
+  cursor: pointer;
+  padding: 8px;
+}
+
+.model-selector {
+  padding: 8px 16px;
+  display: flex;
+  gap: 8px;
+  background-color: #0b0f19;
+  flex-shrink: 0;
+}
+
+.model-chip {
+  background-color: #1f2937;
+  color: #9ca3af;
+  border: none;
+  padding: 6px 12px;
+  border-radius: 9999px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.model-chip.active {
+  background-color: #312e81;
+  color: #818cf8;
 }
 
 /* ==========================================
    ÁREA DE MENSAJES (CON SCROLL INTERNO)
    ========================================== */
 #ai-messages, #secret-messages, .messages-box {
-  flex: 1;
+  flex: 1 1 auto;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  padding: 12px;
+  min-height: 0;
+  padding: 16px;
   display: flex;
   flex-direction: column;
   gap: 12px;
@@ -106,7 +170,7 @@ html, body {
    ZONA DE INPUT (FIJA ABAJO Y VISIBLE)
    ========================================== */
 .input-zone, .chat-input-container {
-  flex-shrink: 0; /* Impide que la barra de texto sea aplastada */
+  flex-shrink: 0;
   display: flex;
   align-items: center;
   gap: 10px;
@@ -128,7 +192,7 @@ html, body {
   outline: none;
 }
 
-#ai-input:focus, #secret-input:focus {
+#ai-input:focus, #secret-input:focus, input:focus {
   border-color: #6366f1;
 }
 
@@ -143,6 +207,55 @@ html, body {
   display: flex;
   align-items: center;
   justify-content: center;
+  cursor: pointer;
+}
+
+/* ==========================================
+   PANTALLA DE LOGIN
+   ========================================== */
+#login-screen {
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.login-card {
+  background-color: #111827;
+  padding: 24px;
+  border-radius: 16px;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  border: 1px solid #1f2937;
+}
+
+.login-card h2 {
+  font-size: 1.25rem;
+}
+
+.login-card p {
+  font-size: 0.85rem;
+  opacity: 0.7;
+}
+
+.action-btn {
+  background-color: #6366f1;
+  color: white;
+  border: none;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.secondary-btn {
+  background-color: transparent;
+  color: #9ca3af;
+  border: 1px solid #374151;
+  padding: 8px;
+  border-radius: 8px;
   cursor: pointer;
 }
 
@@ -195,4 +308,28 @@ html, body {
   width: 90%;
   max-width: 400px;
   border: 1px solid #1f2937;
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 16px;
+}
+
+.close-btn {
+  background: transparent;
+  border: none;
+  color: #9ca3af;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.setting-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 0;
+  font-size: 0.9rem;
+  border-bottom: 1px solid #1f2937;
 }
