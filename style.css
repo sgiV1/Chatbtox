@@ -1,5 +1,5 @@
 /* ==========================================
-   ESTILOS GENERALES Y RESET
+   RESET Y CONFIGURACIÓN BÁSICA
    ========================================== */
 * {
   box-sizing: border-box;
@@ -10,48 +10,44 @@
 html, body {
   height: 100%;
   width: 100%;
-  overflow: hidden;
   background-color: #0b0f19;
   color: #f3f4f6;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  overflow: hidden; /* Evita que la página entera haga scroll */
 }
 
-/* Utilidad para ocultar elementos */
+/* Utilidad para ocultar pantallas */
 .hidden {
   display: none !important;
 }
 
 /* ==========================================
-   VISTAS PRINCIPALES (PANTALLAS)
+   PANTALLAS / VISTAS PRINCIPALES
    ========================================== */
 #ai-view, #secret-chat-screen, #login-screen {
   display: flex;
   flex-direction: column;
-  height: 100dvh; /* Altura dinámica real para celulares con teclado virtual */
+  height: 100vh;
+  height: 100dvh; /* Altura dinámica para celulares */
   width: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
   background-color: #0b0f19;
-  overflow: hidden;
 }
 
 /* ==========================================
-   CAJAS DE MENSAJES (SCROLL FLUIDO)
+   ÁREA DE MENSAJES (CON SCROLL INTERNO)
    ========================================== */
 #ai-messages, #secret-messages, .messages-box {
-  flex: 1 1 auto;
+  flex: 1;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
-  min-height: 0; /* Vital para que el flexbox no colapse el input */
-  padding: 16px;
+  padding: 12px;
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
 /* ==========================================
-   BURBUJAS DE CHAT Y AVATARES
+   BURBUJAS DE CHAT
    ========================================== */
 .msg-group {
   display: flex;
@@ -70,8 +66,8 @@ html, body {
 }
 
 .msg-avatar {
-  width: 35px;
-  height: 35px;
+  width: 32px;
+  height: 32px;
   border-radius: 50%;
   object-fit: cover;
   flex-shrink: 0;
@@ -84,7 +80,6 @@ html, body {
   border-radius: 14px;
   font-size: 0.95rem;
   line-height: 1.4;
-  position: relative;
   word-break: break-word;
 }
 
@@ -108,18 +103,17 @@ html, body {
 }
 
 /* ==========================================
-   ZONA DE ENTRADA (INPUTS FIJOS ABAJO)
+   ZONA DE INPUT (FIJA ABAJO Y VISIBLE)
    ========================================== */
 .input-zone, .chat-input-container {
-  flex-shrink: 0;
-  width: 100%;
+  flex-shrink: 0; /* Impide que la barra de texto sea aplastada */
   display: flex;
   align-items: center;
   gap: 10px;
   padding: 12px 16px;
   background-color: #111827;
   border-top: 1px solid #1f2937;
-  box-sizing: border-box;
+  width: 100%;
 }
 
 #ai-input, #secret-input, input[type="text"], input[type="password"] {
@@ -150,15 +144,10 @@ html, body {
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  transition: background-color 0.2s;
-}
-
-#ai-send:hover, #secret-send:hover {
-  background-color: #4f46e5;
 }
 
 /* ==========================================
-   INDICADOR DE ESCRITURA ("ESCRIBIENDO...")
+   INDICADOR DE ESCRITURA
    ========================================== */
 .typing-indicator {
   display: flex;
