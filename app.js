@@ -1,5 +1,5 @@
 // ==========================================
-// CONFIGURACIÓN INTERNA (OCULTA EN LA INTERFAZ)
+// CONFIGURACIÓN Y ACCESOS INTERNOS
 // ==========================================
 const CODIGO_SECRETO = "2026"; 
 const USUARIOS_VALIDOS = {
