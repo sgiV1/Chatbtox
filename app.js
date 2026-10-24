@@ -1,3 +1,12 @@
+// ==========================================
+// CONFIGURACIÓN INTERNA (OCULTA EN LA INTERFAZ)
+// ==========================================
+const CODIGO_SECRETO = "2026"; 
+const USUARIOS_VALIDOS = {
+  "Edward": "160923",
+  "navidad": "160923"
+};
+
 // 1. CONFIGURACIÓN FIREBASE
 const firebaseConfig = {
   apiKey: "AIzaSyB8Co7NZdYnpWfIEclFnAdwUGs-3jF88y0",
@@ -10,13 +19,6 @@ const firebaseConfig = {
 
 firebase.initializeApp(firebaseConfig);
 const db = firebase.firestore();
-
-// 2. CONFIGURACIÓN DE ACCESO Y USUARIOS
-const CODIGO_SECRETO = "2026";
-const USUARIOS_VALIDOS = {
-  "Edward": "160923",
-  "navidad": "160923"
-};
 
 let miUsuario = localStorage.getItem('chat_usuario') || "";
 let miFoto = localStorage.getItem('chat_foto') || "https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=100&auto=format&fit=crop&q=80";
@@ -59,7 +61,7 @@ function consultarGeminiReal() {
   aiMessagesBox.appendChild(typingDiv);
   aiMessagesBox.scrollTop = aiMessagesBox.scrollHeight;
 
-  // 3. Respuesta con el mensaje técnico solicitado tras un breve retraso
+  // 3. Respuesta de mantenimiento técnica
   setTimeout(() => {
     document.getElementById(typingId)?.remove();
 
@@ -162,7 +164,7 @@ function iniciarApp() {
   if (btnChangePhoto) btnChangePhoto.onclick = cambiarFoto;
   if (myAvatarImg) myAvatarImg.onclick = cambiarFoto;
 
-  // BOTÓN E INPUT DE LA IA (ENLACE DIRECTO)
+  // BOTÓN E INPUT DE LA IA
   const aiSendBtn = document.getElementById('ai-send');
   const aiInput = document.getElementById('ai-input');
 
